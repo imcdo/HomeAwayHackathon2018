@@ -6,8 +6,15 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
-    }
+      people : {
+        jeff : {
+          Name : "Jeff",
+          Age : 12,
+          Pic : null,
+          Gender : "male" 
+        }
+      }
+    };
   }
   
   render() {
@@ -17,7 +24,7 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <Text>bye</Text>
         <Card
-          person={}
+          person={this.state.people.jeff}
         />
       </View>
     );
