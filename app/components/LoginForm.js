@@ -1,31 +1,53 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, TextInput, TouchableOpacity, StatusBar} from 'react-native';
+import { StyleSheet, View, TextInput, Button, TouchableOpacity, StatusBar} from 'react-native';
+import TitledInput from './components/TitledInput'; //originally from ./TitledInput
+import firebase from 'firebase'; 
+import Spinner from './Spinner';
 
 export default class LoginForm extends Component {
+    state = { email: '', password: '', error: '', loading: false };
+    onLoginPress() {
+        this.setState({ error: '', loading: true });
+
+        const { email, password } = this.state;
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(() => { this.setState({ error: '', loading: false }); })
+            .catch(() => {
+                //Login was not successful, let's create a new account
+                firebase.auth().createUserWithEmailAndPassword(email, password)
+                    .then(() => { this.setState({ error: '', loading: false }); })
+                    .catch(() => {
+                        this.setState({ error: 'Authentication failed.', loading: false });
+                    });
+            });
+    }
+    renderButtonOrSpinner() {
+        if (this.state.loading) {
+            return <Spinner />;    
+        }
+        return <Button onPress={this.onLoginPress.bind(this)} title="Log in" />;
+    }
     render(){
         return(
             <View style={StyleSheet.container}>
                 <StatusBar
                     barStyle="light-content"
                 />
-                <TextInput 
-                    placeholder="email"
-                    placeholderTextColor="rgba(255,255,255,0.7)"
-                    returnKeyType="next"
-                    onSubmitEditing={() => this.passwordInput.focus()}
-                    keyboardType="email-address"
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    style={styles.input}
+                <TitledInput 
+                        label='Email Address'
+                        placeholder='you@domain.com'
+                        value={this.state.email}
+                        onChangeText={email => this.setState({ email })}
                 />
-                <TextInput
-                    placeholder="password"
-                    placeholderTextColor="rgba(255,255,255,0.7)"
-                    returnKeyType="go"
-                    secureTextEntry
-                    style={styles.input}
-                    ref={(input) => this.passwordInput = input}
+                <TitledInput 
+                        label='Password'
+                        autoCorrect={false}
+                        placeholder='*******'
+                        secureTextEntry
+                        value={this.state.password}
+                        onChangeText={password => this.setState({ password })}
                 />
+                <Button title="Log in" />
 
                 <TouchableOpacity style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>LOGIN</Text>
@@ -34,6 +56,8 @@ export default class LoginForm extends Component {
         );
     }
 }
+
+export default LoginForm; 
 
 const styles = StyleSheet.create({
     container: {
