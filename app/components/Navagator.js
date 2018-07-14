@@ -10,20 +10,18 @@ export default class Card extends Component {
     render() {
         return(
             <View>
+            <TripCard 
+                    person={this.props.person}
+                />
                 <View style={styles.bottomBar}>
                     <Button 
                         title='Yep'
-                        style={styles.yep}
                         onPress={this.props.yepPress}
                     >
                         Partner
                     </Button>
-                        <TripCard 
-                            person={this.props.person}
-                        />
                     <Button
                         title='Nope'
-                        style={styles.nope}
                         onPress={this.props.nopePress}
                     >
                         Don't Partner
@@ -35,6 +33,12 @@ export default class Card extends Component {
 }
 
 const styles = StyleSheet.create({
+router : {
+    backgroundColor: 'blue',
+    alignItems: 'center',
+    flex: 1, 
+    margin : 10,
+},
 header : {
     color: 'white',
     alignItems: 'center',
@@ -45,6 +49,8 @@ body : {
 },
 bottomBar : {
     backgroundColor : 'gray',
-    height : 10,
+    height : 20,
+    flex : 1,
+    flexDirection: "horizontal"
 }
 });
