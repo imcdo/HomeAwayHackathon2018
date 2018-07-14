@@ -1,47 +1,49 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar, Button } from 'react-native';
+import { StyleSheet, View, Image, Text, KeyboardAvoidingView} from 'react-native';
+import LoginForm from '../components/LoginForm'
 
+//color format: #00a8ff blue
 
 export default class Login extends Component {
     render() {
         return(
-            <View style = {styles.container}>
-                <TextInput
-                    placeholder = "email"
-                    placeholderTextColor = "rgba(255,255,255,0.7)"
-                    returnKeyType = "next"
-                    onSubmitEditing = {() => this.passwordInput.focus()}
-                    keyboardType = "email-addess"
-                    autoCapitalize = "none"
-                    autoCorrect = {false}
-                    style = {styles.input}
-                    />
-                <TextInput
-                    placeholder = "password"
-                    placeholderTextColor = "rgba(255,255,255,0.7)"
-                    returnKeyType = "go"
-                    secureTextEntrystyle
-                    style = {styles.input}
-                    ref = {(input) => this.passwordInput = input}
+            <KeyboardAvoidingView behavior="padding" style={styles.container}>
+                <View style={styles.logoContainer}>
+                    <Image 
+                        style={styles.logo}
+                        source={require('../../Assets/Logos/logo.png')}
                     />
 
-                <TouchableOpacity style = {styles.buttonContainer}>
-                    <Text style = {styles.buttonText}>LOGIN</Text>
-                </TouchableOpacity>
+                    <Text style={styles.title}>An app made for finding travel partners.</Text>
+                </View>
 
-                <Button onPress={this.props.onLogin}>Login</Button>
-
+                <View style={styles.formContainer}>
+                    <LoginForm/>
+                </View>
             </View>
         );
- 
     }
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
+    container : {
+        flex : 1,
         backgroundColor: '#00a8ff'
+    },
+    logoContainer:{
+        alignItems: 'center',
+        flexGrow: 1,
+        justifyContent: 'center'
+    },
+    logo: {
+        width: 100,
+        height: 100
+    },
+    title: {
+        color: '#FFF',
+        marginTop: 10,
+        width: 160,
+        textAlign: 'center', 
+        opacity: 0.8
     }
 });
-
-//export default Login;
