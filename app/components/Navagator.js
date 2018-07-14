@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
-import Card from './Card'
-
+import TripCard from "./TripCard"
 
 export default class Card extends Component {
     constructor(props) {
@@ -19,7 +18,7 @@ export default class Card extends Component {
                     >
                         Partner
                     </Button>
-                        <Card 
+                        <TripCard 
                             person={this.props.person}
                         />
                     <Button
