@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import TripCard from "./TripCard"
 
-export default class Card extends Component {
+export default class SwipeManager extends Component {
     constructor(props) {
         super(props);
     }
