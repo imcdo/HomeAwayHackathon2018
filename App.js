@@ -22,6 +22,8 @@ export default class App extends React.Component {
 
       ],
       currentIndex : 0,
+      
+      currentPage : <Login/>
     };
   }
 
@@ -43,6 +45,17 @@ export default class App extends React.Component {
   nopePress = () => {
     this.onPress();
   };
+
+  getNavigator = () => {
+    return (
+      <Navigator
+          person={this.state.people[this.state.currentIndex]}
+          onPress={this.onPress}
+          yepPress={this.yepPress}
+          nopePress={this.nopePress}
+        />
+    );
+  };
   
   render() {
     //stack navigator
@@ -50,12 +63,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>bye</Text>
-        <Navigator
-          person={this.state.people[this.state.currentIndex]}
-          onPress={this.onPress}
-          yepPress={this.yepPress}
-          nopePress={this.nopePress}
-        />
+        
       </View>
     );
   }
