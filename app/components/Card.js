@@ -41,8 +41,7 @@ const styles =  StyleSheet.create({
         alignItems: 'center',
         flex: 1, 
         margin : 10,
-    },
-    header : {
+    },header : {
         color: 'white',
         alignItems: 'center',
         fontSize: 32,
@@ -53,15 +52,5 @@ const styles =  StyleSheet.create({
     bottomBar : {
         backgroundColor : 'gray',
         height : 10,
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    nope : {
-        height : 20,
-    },
-    yep : {
-        height : 20,
     }
 });
