@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import {} from ''
 
 export default class App extends React.Component {
   render() {
+    //stack navigator
+    //
     return (
       <View style={styles.container}>
         <Text>hi</Text>
