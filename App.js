@@ -62,8 +62,17 @@ export default class App extends React.Component {
     //
     return (
       <View style={styles.container}>
+<<<<<<< HEAD
         <Text>bye</Text>
         
+=======
+        <Navigator
+          person={this.state.people[this.state.currentIndex]}
+          onPress={this.onPress}
+          yepPress={this.yepPress}
+          nopePress={this.nopePress}
+        />
+>>>>>>> 8b91a6c9f02de40bddf5b7f17d7ef513c211d590
       </View>
     );
   }
