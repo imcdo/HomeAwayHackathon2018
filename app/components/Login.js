@@ -20,7 +20,7 @@ export default class Login extends Component {
                 <View style={styles.formContainer}>
                     <LoginForm/>
                 </View>
-            </View>
+            </KeyboardAvoidingView>
         );
     }
 }

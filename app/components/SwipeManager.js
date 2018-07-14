@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import TripCard from "./TripCard"
 
-export default class Card extends Component {
+export default class SwipeManager extends Component {
     constructor(props) {
         super(props);
     }
@@ -48,9 +48,15 @@ body : {
     flex : 5,
 },
 bottomBar : {
-    backgroundColor : 'gray',
-    height : 20,
+    backgroundColor : 'rgba(155, 155, 155, .6)',
+    height : 30,
+    flexDirection: "row",
+    position : "absolute",
+    bottom: 0,
+    alignItems: 'center',
+    width: 200,
     flex : 1,
-    flexDirection: "horizontal"
+    alignContent: 'center',
+
 }
 });
