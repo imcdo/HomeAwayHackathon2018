@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar } from 'react-native';
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar, Button } from 'react-native';
 
 
 export default class Login extends Component {
@@ -8,7 +8,7 @@ export default class Login extends Component {
             <View style = {styles.container}>
                 <TextInput
                     placeholder = "email"
-                    placeholderTextColor = "rgba(255,255,255,0.7"
+                    placeholderTextColor = "rgba(255,255,255,0.7)"
                     returnKeyType = "next"
                     onSubmitEditing = {() => this.passwordInput.focus()}
                     keyboardType = "email-addess"
@@ -28,6 +28,8 @@ export default class Login extends Component {
                 <TouchableOpacity style = {styles.buttonContainer}>
                     <Text style = {styles.buttonText}>LOGIN</Text>
                 </TouchableOpacity>
+
+                <Button onPress={this.props.onLogin}>Login</Button>
 
             </View>
         );

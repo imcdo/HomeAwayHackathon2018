@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Navigator from './app/components/Navagator'
-
+import Login from './app/components/Login'
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -17,13 +17,13 @@ export default class App extends React.Component {
           name : "Pamala",
           age : 95,
           pic : null,
-          gener : "fluid"
+          gender : "fluid"
         },
 
       ],
       currentIndex : 0,
       
-      currentPage : <Login/>
+      currentPage : <Login onLogin={this.getNavigator}/>
     };
   }
 
@@ -47,14 +47,13 @@ export default class App extends React.Component {
   };
 
   getNavigator = () => {
-    return (
+    this.setState({currentPage : 
       <Navigator
-          person={this.state.people[this.state.currentIndex]}
-          onPress={this.onPress}
-          yepPress={this.yepPress}
-          nopePress={this.nopePress}
-        />
-    );
+      person={this.state.people[this.state.currentIndex]}
+      onPress={this.onPress}
+      yepPress={this.yepPress}
+      nopePress={this.nopePress}
+    />});    
   };
   
   render() {
@@ -62,17 +61,7 @@ export default class App extends React.Component {
     //
     return (
       <View style={styles.container}>
-<<<<<<< HEAD
-        <Text>bye</Text>
-        
-=======
-        <Navigator
-          person={this.state.people[this.state.currentIndex]}
-          onPress={this.onPress}
-          yepPress={this.yepPress}
-          nopePress={this.nopePress}
-        />
->>>>>>> 8b91a6c9f02de40bddf5b7f17d7ef513c211d590
+        {this.state.currentPage}
       </View>
     );
   }
