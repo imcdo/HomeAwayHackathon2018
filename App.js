@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Card from './app/components/Card'
+import Navigator from './app/components/Navagator'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export default class App extends React.Component {
   }
 
   loadNewBuff = () => {
-    
+
   }
 
   onPress = () => {
@@ -50,7 +50,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>bye</Text>
-        <Card
+        <Navigator
           person={this.state.people[this.state.currentIndex]}
           onPress={this.onPress}
           yepPress={this.yepPress}

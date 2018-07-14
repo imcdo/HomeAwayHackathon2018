@@ -14,22 +14,6 @@ export default class Card extends Component {
                         <Text></Text>
                     </View>
                 </View>
-                <View style={styles.bottomBar}>
-                    <Button 
-                        title='Yep'
-                        style={styles.yep}
-                        onPress={this.props.yepPress}
-                    >
-                        Partner
-                    </Button>
-                    <Button
-                        title='Nope'
-                        style={styles.nope}
-                        onPress={this.props.nopePress}
-                    >
-                        Don't Partner
-                    </Button>
-                </View>
             </View>
         );
     }
@@ -41,16 +25,8 @@ const styles =  StyleSheet.create({
         alignItems: 'center',
         flex: 1, 
         margin : 10,
-    },header : {
-        color: 'white',
-        alignItems: 'center',
-        fontSize: 32,
     },
     body : {
         flex : 5,
     },
-    bottomBar : {
-        backgroundColor : 'gray',
-        height : 10,
-    }
 });
