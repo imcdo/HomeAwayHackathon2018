@@ -3,30 +3,23 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 
 export default class Card extends Component {
-    
-    constructor(props) {
-        super(props);
-        const loadingPerson ;
-        this.state = {
-            person : loadingPerson,
-            
-        }
-    }
-
     render() {
         return(
-            <View style={styles.card}>
-                <View style={style.bottomBar}>
+            <View>
+            <Text>Name : {this.props.person.name}</Text>
+                <View>
                     <Button 
+                        title='Yep'
                         className='Yep'
-                        style={styles.yep}
+                        //style={styles.yep}
                         onPress={this.props.yepPress}
                     >
                         Partner
                     </Button>
                     <Button
+                        title='Nope'
                         className='Nope'
-                        style={styles.nope}
+                        //style={styles.nope}
                         onPress={this.props.nopePress}
                     >
                         Don't Partner
@@ -35,9 +28,12 @@ export default class Card extends Component {
             </View>
         );
     
-        const style =  StyleSheet.create({
+        const styles =  StyleSheet.create({
             card : {
-                backgroundColor: blue
+                backgroundColor: 'blue',
+                alignItems: 'center',
+            },
+            bottomBar : {
 
             }
         });
