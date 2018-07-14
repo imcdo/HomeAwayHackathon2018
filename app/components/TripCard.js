@@ -21,10 +21,12 @@ export default class TripCard extends Component {
 
 const styles =  StyleSheet.create({
     card : {
-        backgroundColor: 'blue',
+        backgroundColor: '#ADD8E6',
         alignItems: 'center',
         flex: 1, 
         margin : 10,
+        width : '100%'
+        
     },
     body : {
         flex : 5,

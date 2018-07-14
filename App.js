@@ -11,20 +11,36 @@ export default class App extends React.Component {
           name : "Jeff",
           age : 12,
           pic : null,
-          gender : "male" 
+          gender : "male" ,
+          trips : [{
+            location : "New York",
+            dates : "12-24-18 - 12-27-17",
+            num_days : 2
+          },]
         },
         {
           name : "Pamala",
           age : 95,
           pic : null,
-          gender : "fluid"
+          gender : "fluid",
+          trips : [{
+            location : "New York",
+            dates : "12-24-18 - 12-27-17",
+            num_days : 2
+          },]
         },
 
       ],
       currentIndex : 0,
       
-      currentPage : <Login onLogin={this.getNavigator}/>
+      currentPage : nav,
     };
+    const nav = <Navigator
+    person={this.state.people[this.state.currentIndex]}
+    onPress={this.onPress}
+    yepPress={this.yepPress}
+    nopePress={this.nopePress}
+  />
   }
 
   loadNewBuff = () => {
@@ -61,7 +77,12 @@ export default class App extends React.Component {
     //
     return (
       <View style={styles.container}>
-        {this.state.currentPage}
+        <Navigator
+          person={this.state.people[this.state.currentIndex]}
+          onPress={this.onPress}
+          yepPress={this.yepPress}
+          nopePress={this.nopePress}
+        />
       </View>
     );
   }

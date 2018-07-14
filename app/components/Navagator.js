@@ -48,9 +48,15 @@ body : {
     flex : 5,
 },
 bottomBar : {
-    backgroundColor : 'gray',
-    height : 20,
+    backgroundColor : 'rgba(155, 155, 155, .6)',
+    height : 30,
+    flexDirection: "row",
+    position : "absolute",
+    bottom: 0,
+    alignItems: 'center',
+    width: 200,
     flex : 1,
-    flexDirection: "horizontal"
+    alignContent: 'center',
+
 }
 });
