@@ -9,11 +9,14 @@ export default class Card extends Component {
             <Text style={styles.header}>Name : {this.props.person.name}</Text>
                 <View style={styles.body}>
                     <Image source={this.props.person.pic}/>
+                    <View>
+                        <Text>Description</Text>
+                        <Text></Text>
+                    </View>
                 </View>
                 <View style={styles.bottomBar}>
                     <Button 
                         title='Yep'
-                        className='Yep'
                         style={styles.yep}
                         onPress={this.props.yepPress}
                     >
@@ -21,7 +24,6 @@ export default class Card extends Component {
                     </Button>
                     <Button
                         title='Nope'
-                        className='Nope'
                         style={styles.nope}
                         onPress={this.props.nopePress}
                     >
